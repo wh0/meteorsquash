@@ -6,4 +6,4 @@ wget "$TARBALL_URL"
 tar -xzf "meteor-bootstrap-$PLATFORM.tar.gz"
 mv .meteor/package-metadata rw
 
-mksquashfs .meteor bootstrap.squashfs -comp xz -Xbcj x86 -force-gid 1001 -force-uid 1001
+mksquashfs .meteor bootstrap.squashfs -no-progress -comp xz -Xbcj x86 -force-gid 1001 -force-uid 1001
