@@ -1,0 +1,3 @@
+#!/bin/sh -ex
+mount -o ro bootstrap.squashfs ro
+mount -t overlay -o lowerdir=ro,upperdir=rw,workdir=work overlay ~/.meteor

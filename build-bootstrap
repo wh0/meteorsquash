@@ -1,0 +1,9 @@
+RELEASE="1.2.0.2"
+PLATFORM="os.linux.x86_64"
+
+TARBALL_URL="https://d3sqy0vbqsdhku.cloudfront.net/packages-bootstrap/${RELEASE}/meteor-bootstrap-${PLATFORM}.tar.gz"
+wget "$TARBALL_URL"
+tar -xzf "meteor-bootstrap-$PLATFORM.tar.gz"
+mv .meteor/package-metadata rw
+
+mksquashfs .meteor bootstrap.squashfs -comp xz -Xbcj x86 -force-gid 1001 -force-uid 1001

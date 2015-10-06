@@ -1,0 +1,3 @@
+#!/bin/sh
+umount ~/.meteor
+umount ro
