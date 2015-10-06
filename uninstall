@@ -1,0 +1,5 @@
+#!/bin/sh -ex
+sudo ./deactivate || true
+rm ~/.meteor/meteor
+rmdir ~/.meteor
+sudo rm /usr/local/bin/meteor

@@ -1,4 +1,4 @@
-dist.tar.gz: bootstrap.squashfs | ro rw work
+dist.tar.gz: bootstrap.squashfs activate deactivate meteor-wrapper install uninstall | ro rw work
 	tar -czf $@ $+ $|
 
 bootstrap.squashfs: | rw
