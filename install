@@ -2,7 +2,16 @@
 test -x meteor-wrapper
 mkdir ~/.meteor
 ln -s "$PWD/meteor-wrapper" ~/.meteor/meteor
-sudo ./activate
+
+. ./patch-data.sh
+python - 3<>bootstrap.squashfs <<EOF
+import mmap, os, struct
+image = mmap.mmap(3, 0)
+assert struct.unpack_from('<II', image, $PATCH_OFFSET) == ($DUMMY_UID, $DUMMY_GID)
+struct.pack_into('<II', image, $PATCH_OFFSET, os.getuid(), os.getgid())
+EOF
+
+./activate
 
 # --- below is adapted from https://install.meteor.com/
 

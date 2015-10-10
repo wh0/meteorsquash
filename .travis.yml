@@ -3,7 +3,7 @@ addons:
   apt:
     packages:
     - squashfs-tools
-script: make
+script: ./build
 deploy:
   provider: releases
   api_key:

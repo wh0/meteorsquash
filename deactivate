@@ -1,3 +1,3 @@
 #!/bin/sh -ex
-umount ~/.meteor
-umount ro
+sudo umount ~/.meteor
+sudo umount ro

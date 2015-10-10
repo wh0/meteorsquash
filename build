@@ -1,0 +1,26 @@
+#!/bin/sh -ex
+RELEASE="1.2.0.2"
+PLATFORM="os.linux.x86_64"
+
+TARBALL_URL="https://d3sqy0vbqsdhku.cloudfront.net/packages-bootstrap/${RELEASE}/meteor-bootstrap-${PLATFORM}.tar.gz"
+wget -qO - "$TARBALL_URL" | tar -xz
+
+mkdir ro rw work
+mv .meteor/package-metadata rw
+
+DUMMY_UID=111111111
+DUMMY_GID=222222222
+
+mksquashfs .meteor bootstrap.squashfs -no-progress -force-uid "$DUMMY_UID" -force-gid "$DUMMY_GID"
+rm -rf .meteor
+
+gcc -DDUMMY_UID="$DUMMY_UID" -DDUMMY_GID="$DUMMY_GID" -o prepare-patch prepare-patch.c
+PATCH_OFFSET=$(./prepare-patch <bootstrap.squashfs)
+
+cat >patch-data.sh <<EOF
+PATCH_OFFSET=$PATCH_OFFSET
+DUMMY_UID=$DUMMY_UID
+DUMMY_GID=$DUMMY_GID
+EOF
+
+tar -czf dist.tar.gz activate deactivate meteor-wrapper patch-data.sh install uninstall bootstrap.squashfs ro rw work
