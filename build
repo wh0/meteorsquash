@@ -1,5 +1,5 @@
 #!/bin/sh -ex
-RELEASE="1.2.0.2"
+RELEASE="1.2.1"
 PLATFORM="os.linux.x86_64"
 
 TARBALL_URL="https://d3sqy0vbqsdhku.cloudfront.net/packages-bootstrap/${RELEASE}/meteor-bootstrap-${PLATFORM}.tar.gz"
