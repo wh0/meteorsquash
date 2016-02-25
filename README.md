@@ -43,7 +43,7 @@ But the Meteor tool needs to write to it all the time.
 What can we do about this?
 
 ### Limitations of overlayfs
-You need Linux 2.4 or later.
+You need Linux 4.2 or later.
 Prior to that, this whole thing won't work, because
 ["Symlinks in /proc/PID/ and /proc/PID/fd which point to a non-directory
 object in overlayfs will not contain valid absolute paths, only
