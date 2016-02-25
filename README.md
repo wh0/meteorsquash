@@ -2,6 +2,8 @@
 
 And use overlayfs to install new packages.
 
+[![Build Status](https://travis-ci.org/wh0/meteorsquash.svg?branch=master)](https://travis-ci.org/wh0/meteorsquash)
+
 ---
 
 ## Provided
