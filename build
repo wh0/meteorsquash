@@ -1,8 +1,8 @@
 #!/bin/sh -ex
-RELEASE="1.2.1"
+RELEASE="1.4.1.1"
 PLATFORM="os.linux.x86_64"
 
-TARBALL_URL="https://d3sqy0vbqsdhku.cloudfront.net/packages-bootstrap/${RELEASE}/meteor-bootstrap-${PLATFORM}.tar.gz"
+TARBALL_URL="https://meteorinstall-4168.kxcdn.com/packages-bootstrap/${RELEASE}/meteor-bootstrap-${PLATFORM}.tar.gz"
 wget -qO - "$TARBALL_URL" | tar -xz
 
 mkdir ro rw work
